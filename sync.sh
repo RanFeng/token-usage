@@ -22,6 +22,7 @@ rsync -av --delete \
   --exclude="*.log" \
   --exclude="sync.sh" \
   --exclude="promo" \
+  --exclude="assets/screenshots" \
   --exclude="CONTRIBUTING.md" \
   --exclude="CODE_OF_CONDUCT.md" \
   --exclude="SECURITY.md" \

@@ -5,7 +5,8 @@
 <h1 align="center">Token Usage</h1>
 
 <p align="center">
-  <strong>Real-time token, context, cost & health analytics for <a href="https://antigravity.google">Antigravity</a> — 100% local, zero dependencies, privacy-first.</strong>
+  <strong>Stop flying blind on tokens — Real-time context gauge, subscription ROI, health diagnostics & local DLP analytics for <a href="https://antigravity.google">Antigravity</a>.</strong><br />
+  <sub>100% Local & Read-Only · Zero Dependencies · Privacy-First · Out-of-the-Box</sub>
 </p>
 
 <p align="center">
@@ -24,36 +25,49 @@
   <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey.svg" alt="Cross-Platform" />
 </p>
 
+<p align="center">
+  <img src="./assets/screenshots/hero-banner.jpg" alt="Token Usage Hero Banner" width="100%" />
+</p>
+
 ---
 
-## ⚡ Quick Install (Recommended: One Sentence to Your Agent)
+## 🎯 Why Developers Love Token Usage
 
-You don't need to open a terminal, clone repositories, or copy files manually. **Just paste the sentence below directly into Antigravity Chat**, and let the Agent install and verify everything for you:
+AI coding is fast — until context fills up, tools loop, or you wonder if your plan is paying off:
+
+| Everyday Pain Point | How Token Usage Solves It |
+| :--- | :--- |
+| 😵 **Sudden context overflow / Compact amnesia** | Live context gauge (used / remaining / limit), growth curve with auto-marked **Compact** points, and proactive `80% / 90%` alerts |
+| 💸 **Not sure if your subscription is paying off** | Built-in **Subscription ROI Dashboard** (`$20 Pro / $100 Ultra / $200 Ultra` or custom cycle) with ROI multiplier & cache-savings tracker |
+| 🐌 **A turn took 20s — is it the model or a tool?** | Per-turn **Model Thinking vs. Tool Execution** timing split plus an interactive **JSON Tree Viewer** for every tool call |
+| 🔐 **Worried about accidental API key leaks in logs** | **100% Local Lite DLP** scans 7 credential types in-memory — raw secrets are never stored or shown, with one-click jump-to-turn |
+| 📊 **Need project billing or a shareable recap card** | Automatic **Top 10 Workspace Attribution**, one-click CSV/JSON billing export, and **2× Retina anonymized PNG share cards** |
+
+---
+
+## ⚡ 10-Second Install (Recommended: One Sentence to Your Agent)
+
+No terminal needed. **Just paste this single sentence into Antigravity Chat**, and let the Agent install, sync, verify, and give you the enable link:
 
 > ```text
 > Install the Antigravity plugin from https://github.com/RanFeng/token-usage into ~/.gemini/config/plugins/token-usage (run sync.sh if available), verify the installed files, and give me the link to enable and open the Token Usage panel.
 > ```
 
-**What the Agent will do automatically:**
-1. Clone `https://github.com/RanFeng/token-usage` to a local folder.
-2. Sync the plugin bundle (`plugin.json`, `assets/`, `sidecars/`, `skills/`) into `~/.gemini/config/plugins/token-usage`.
-3. Verify the installation and provide a direct link to Antigravity's **Customizations / Plugins** page so you can toggle **Token Usage** on with one click.
+**What the Agent does automatically:**
+1. Clones `https://github.com/RanFeng/token-usage`.
+2. Syncs the plugin bundle into `~/.gemini/config/plugins/token-usage`.
+3. Verifies the install and gives you a direct link to **Customizations / Plugins** to toggle **Token Usage** on (live, no restart).
 
-### 🔄 Updating in One Sentence
-
-When a new version is released, simply tell Antigravity:
-
-> ```text
-> Update my token-usage plugin from https://github.com/RanFeng/token-usage to the latest version and sync it to ~/.gemini/config/plugins/token-usage.
-> ```
+> **🔄 Update anytime in one sentence**:
+> `Update my token-usage plugin from https://github.com/RanFeng/token-usage to the latest version and sync it to ~/.gemini/config/plugins/token-usage.`
 
 <details>
-<summary><strong>🛠️ Prefer Manual Installation (CLI)? Click to expand</strong></summary>
+<summary><strong>🛠️ Prefer Manual CLI Installation? Click to expand (macOS / Linux / Windows)</strong></summary>
 
 #### Prerequisites
 - **Antigravity** installed
-- **Node.js 18+** (runs the zero-dependency Sidecar web panel)
-- **Python 3.8+** (runs the Chat Skill / CLI stats script)
+- **Node.js 18+** (Sidecar live web panel)
+- **Python 3.8+** (Chat Skill & CLI script)
 
 #### macOS / Linux (Recommended with `sync.sh`)
 ```bash
@@ -61,7 +75,7 @@ git clone https://github.com/RanFeng/token-usage.git
 cd token-usage
 ./sync.sh
 ```
-Or clone directly into the Antigravity plugins directory:
+Or clone directly:
 ```bash
 git clone https://github.com/RanFeng/token-usage.git ~/.gemini/config/plugins/token-usage
 ```
@@ -71,123 +85,134 @@ git clone https://github.com/RanFeng/token-usage.git ~/.gemini/config/plugins/to
 git clone https://github.com/RanFeng/token-usage.git "$env:USERPROFILE\.gemini\config\plugins\token-usage"
 ```
 
-#### Enable the Plugin
-1. Open **Antigravity** → **Customizations / Plugins**.
-2. Enable **Token Usage** (takes effect immediately, no restart needed).
-3. Open the **Token Usage** auxiliary side panel (**Aux Pane**) in the sidebar.
+#### Enable the Panel
+Open **Antigravity** → **Customizations / Plugins** → enable **Token Usage** → open **Token Usage** in the auxiliary sidebar (**Aux Pane**).
 
 </details>
 
 ---
 
-## 📖 How to Use
+## ✨ Visual Feature Tour
 
-Token Usage works in **three ways** — choose whichever fits your workflow best.
+### 1. Live Context Telemetry & Per-Turn X-Ray (Current Tab)
 
-### 1. Live Sidecar Panel (Aux Pane)
+<p align="center">
+  <img src="./assets/screenshots/live-telemetry.jpg" alt="Live Context Telemetry and Per-Turn Breakdown" width="100%" />
+</p>
 
-Open the **Token Usage** panel in Antigravity's auxiliary sidebar for real-time visual analytics.
-
-#### 📊 Current Tab — Live Session Inspector
-- **Context Window Gauge**: Live view of used / remaining / limit tokens, cumulative `input`, `cache_read`, and `output` tokens, estimated API-equivalent cost, and cache savings.
-- **Context Growth Curve**: Tracks context expansion turn-by-turn and automatically highlights **Compact** compression points.
-- **Realtime Health Diagnostics**: Automatic, dismissible alerts for:
-  - Near-Compact context (`≥80%` warning / `≥90%` critical)
-  - Consecutive error-burn loops
-  - Single-turn token spikes
-  - Low prompt-cache hit rates
-- **100% Local Lite DLP Secret Detection**: Scans local transcripts for 7 high-confidence credential patterns (`API Keys`, `AWS Keys`, `GitHub Tokens`, `Google Keys`, `JWT`, `Private Keys`, `DB URIs`). Raw secrets are **never stored or displayed** — only masked snippets with a one-click jump to the exact turn.
-- **Per-Turn Breakdown & JSON Tree Viewer**:
-  - Splits every turn into **Model Thinking time vs. Tool Execution time**, with model and tool attribution.
-  - Supports keyword search and quick filters (`All` / `High` / `Errors` / `Media`).
-  - Expand any tool call with the built-in searchable, collapsible **JSON Tree Viewer**.
-- **Desensitized Session Diagnostic Card (PNG)**: Export or copy a 2× HiDPI diagnostic snapshot (context curve, tokens, cache rate, model/tool stats) — **100% anonymized with zero prompts, file paths, project names, or secrets**.
-
-#### 📈 Overview Tab — 12+ Global & Trend Analytics
-- **Subscription ROI Dashboard**: Click the subscription card to configure your plan (`$20 Pro` / `$100 Ultra` / `$200 Ultra` or any custom price, monthly/weekly cycle, and billing reset day). Track your ROI multiplier, end-of-month forecast, and total cache savings.
-- **Activity & Coding Persona**: 90-day GitHub-style heatmap, 14-day daily bar chart, 24-hour coding persona & weekday/weekend split, global Top 10 models & tools, context health score, local achievements, and Hall of Fame.
-- **Project Attribution**: Automatically infers your Top 10 active workspaces from tool file paths.
-- **Local Multi-Tool Radar**: Lightweight, read-only local detection of session counts across **Claude Code**, **Codex**, **Cursor**, and **Gemini CLI**.
-- **Retina Overview Report Card (PNG)**: Generate a customizable 2× HiDPI share card (Dark & Light themes, toggleable modules) and copy directly to your clipboard or save to `~/Downloads`.
-
-#### 🕒 History Tab & Toolbar Actions
-- **History Tab**: Browse and jump into any past Antigravity conversation.
-- **Language Toggle (`EN / 中`)**: Switch the panel UI between English and Chinese in one click.
-- **Settings Modal**:
-  - Switch currency between `USD ($)` and `CNY (¥)` with an editable exchange rate.
-  - Customize per-1M-token pricing for `Pro`, `Flash`, `Claude`, and `GPT/Codex` model families.
-  - Check for plugin updates via GitHub Releases.
-- **Export Modal**:
-  - Export filtered billing ledgers (`This Month` / `Last 30 Days` / `All Time`) as UTF-8 BOM **CSV** or **JSON**.
-  - Export the current session as Markdown or a desensitized summary directly to `~/Downloads`.
+- **Live Context Gauge**: Real-time used / remaining / limit ratio, cumulative `input`, `cache_read`, and `output` tokens, estimated API cost, and cache savings.
+- **Context Growth Curve & Compact Detection**: Tracks turn-by-turn expansion and highlights **Compact** compression points automatically.
+- **Dual Timing & JSON Tree Viewer**: Splits **Model Thinking vs. Tool Execution** latency, with keyword search, quick filters (`All / High / Errors / Media`), and a collapsible JSON Tree Viewer.
 
 ---
 
-### 2. In-Chat Skill (`/token-usage` or Natural Language)
+### 2. 12+ Trend Overview & Subscription ROI Dashboard (Overview Tab)
 
-Once enabled, Antigravity automatically loads the bundled `token-usage` Skill. You can type `/token-usage` or simply ask in plain language:
+<p align="center">
+  <img src="./assets/screenshots/trend-overview.jpg" alt="12+ Trend Overview and Subscription ROI" width="100%" />
+</p>
 
-- *"Summarize token usage for my last 10 sessions"*
-- *"Show per-turn token breakdown for the current session"*
-- *"Aggregate total token consumption by model"*
-- *"Which 5 sessions consumed the most tokens?"*
+- **Subscription ROI at a Glance**: Configure `$20 Pro / $100 Ultra / $200 Ultra` or any custom monthly/weekly plan & reset day to track ROI multiplier, end-of-month forecast, and cache savings.
+- **Global Coding Insights**: 90-day GitHub-style activity heatmap, 14-day daily bar chart, 24-hour coding persona (weekday vs. weekend), Top 10 models & tools, context health score, local achievements, and Hall of Fame.
+- **Bilingual, Multi-Currency & Custom Pricing**: One-click `EN / 中` and `USD ($) / CNY (¥)` switching with editable FX rate and per-1M-token rates for `Pro`, `Flash`, `Claude`, and `GPT/Codex`.
 
 ---
 
-### 3. Standalone CLI Script (`token_stats.py`)
+### 3. Realtime Health Diagnostics & 100% Local Lite DLP
 
-You can also query your local transcripts directly from any terminal (Python 3 standard library only):
+<p align="center">
+  <img src="./assets/screenshots/health-dlp.jpg" alt="Realtime Health Diagnostics and 100% Local Lite DLP" width="100%" />
+</p>
+
+- **4 Realtime Health Alerts**: Catches **near-Compact (`≥80% / ≥90%`)**, **error-burn loops**, **single-turn token spikes**, and **low cache hit rates** before tokens go to waste.
+- **7-Pattern Local Secret Scanner**: Scans locally for `API Keys`, `AWS Keys`, `GitHub Tokens`, `Google Keys`, `JWT`, `Private Keys`, and `DB URIs`. **Raw secrets are never stored or displayed** — only masked snippets with one-click jump-to-turn inspection.
+
+---
+
+### 4. Local Multi-Tool Radar & Project Billing Export
+
+<p align="center">
+  <img src="./assets/screenshots/radar-billing.jpg" alt="Local Multi-Tool Radar and Project Billing" width="100%" />
+</p>
+
+- **Top 10 Project Attribution**: Infers active workspaces from tool paths to break down tokens, API-equivalent cost, and cache savings per project.
+- **One-Click Billing Export**: Export `This Month` / `Last 30 Days` / `All Time` ledgers in UTF-8 BOM **CSV** or **JSON**, plus Markdown & desensitized session reports directly to `~/Downloads`.
+- **360° Local Multi-Tool Radar**: Lightweight read-only session counter for **Claude Code**, **Codex**, **Cursor**, and **Gemini CLI** (counts only — never reads third-party conversation text).
+
+---
+
+### 5. 2× Retina Share Cards & `/token-usage` In-Chat Skill
+
+<p align="center">
+  <img src="./assets/screenshots/share-skill.jpg" alt="2x Retina Share Cards and In-Chat Skill" width="100%" />
+</p>
+
+- **2× HiDPI Canvas Share Cards**: Generate customizable **Overview Report Cards** (Dark/Light themes, toggleable modules) and **100% Anonymized Session Diagnostic Cards** (zero prompts, paths, project names, or secrets), with one-click clipboard copy or download.
+- **In-Chat `/token-usage` Skill**: Ask directly in Antigravity chat for clean Markdown usage tables without switching panes.
+
+---
+
+## 📖 Three Ways to Use
+
+| Mode | Best For | How to Use |
+| :--- | :--- | :--- |
+| **1. Sidecar Live Panel (Aux Pane)** | Real-time context, ROI, heatmaps, DLP & billing export | Enable the plugin and open **Token Usage** in the auxiliary sidebar |
+| **2. In-Chat Skill** | Quick summaries right inside chat | Type `/token-usage` or ask *"Summarize my last 10 sessions"* / *"Show per-turn breakdown"* / *"Aggregate tokens by model"* |
+| **3. Standalone CLI Script** | Terminal queries & automation (Python 3 stdlib only) | See commands below |
 
 ```bash
-# 1. Summary across recent sessions (--sort: recent | tokens, --limit: default 15)
+# 1. Recent session summary (--sort: recent | tokens, --limit: default 15)
 python3 ~/.gemini/config/plugins/token-usage/skills/token-usage/scripts/token_stats.py summary --limit 15 --sort recent
 
-# 2. Per-turn breakdown for a single session (pass "latest", an 8-char ID prefix, or full UUID)
+# 2. Per-turn breakdown ("latest", 8-char ID prefix, or full UUID)
 python3 ~/.gemini/config/plugins/token-usage/skills/token-usage/scripts/token_stats.py session latest
 
-# 3. Global & per-model token totals
+# 3. Global & per-model totals
 python3 ~/.gemini/config/plugins/token-usage/skills/token-usage/scripts/token_stats.py models
 ```
 
-> **Token Definitions**: `input` = uncached prompt input tokens, `cache_read` = prompt-cache hit tokens, `output` = model-generated tokens (`total = input + output`, excluding cache reads unless specified).
+> **Token Definitions**: `input` = uncached prompt tokens, `cache_read` = prompt-cache hits, `output` = model output tokens (`total = input + output` by default).
 
 ---
 
 ## 🔒 Privacy & Security
 
-- **100% Local & Read-Only**: Reads local Antigravity transcripts (`~/.gemini/antigravity/brain/<conversation-id>/.system_generated/logs/transcript.jsonl`) directly on your machine. Never modifies Antigravity binaries or uploads conversation data.
-- **Zero External Dependencies**: Built strictly with Node.js ESM built-ins, vanilla HTML/CSS/Canvas/JS, and the Python standard library.
-- **Privacy-Safe Sharing**: Session diagnostic PNGs strip all user prompts, file paths, workspace names, and detected credentials.
-- **Network Transparency**: Zero telemetry or analytics. The optional *Check for Updates* action only queries GitHub's public Releases API (cached locally for 7 days).
+- **100% Local & Read-Only**: Reads `~/.gemini/antigravity/brain/<conversation-id>/.system_generated/logs/transcript.jsonl` directly. Never modifies binaries or uploads conversations.
+- **Zero External Dependencies**: Pure Node.js ESM built-ins + vanilla HTML/CSS/Canvas/JS + Python 3 stdlib.
+- **Privacy-Safe Sharing**: Session diagnostic PNGs strip all prompts, file paths, workspace names, and credentials.
+- **Zero Telemetry**: No analytics or tracking; the optional *Check for Updates* call only queries GitHub's public Releases API (cached locally for 7 days).
 
 ---
 
-## ❓ FAQ & Troubleshooting
+## ❓ FAQ
 
 <details>
 <summary><strong>The Token Usage side panel doesn't appear after installation</strong></summary>
 
-1. Verify the plugin files exist in `~/.gemini/config/plugins/token-usage/plugin.json`.
+1. Verify `~/.gemini/config/plugins/token-usage/plugin.json` exists.
 2. Open Antigravity → **Customizations / Plugins** and confirm **Token Usage** is enabled.
-3. Make sure `node` (Node.js 18+) is available in your system `PATH` so the Sidecar server can start.
+3. Ensure `node` (Node.js 18+) is in your `PATH` so the Sidecar server can start.
 </details>
 
 <details>
 <summary><strong>Why do estimated costs differ from my subscription or API bill?</strong></summary>
 
-Costs shown in the panel are API-equivalent estimates based on default per-1M-token rates for each model family (`Pro`, `Flash`, `Claude`, `GPT/Codex`). You can customize every model family's unit price, currency (`USD`/`CNY`), and your subscription plan/cycle anytime in the **Settings** modal.
+Displayed costs are API-equivalent estimates using default per-1M-token rates. You can customize unit prices, currency (`USD`/`CNY`), FX rate, and your subscription plan/cycle anytime in **Settings**.
 </details>
 
 <details>
 <summary><strong>How do I uninstall Token Usage?</strong></summary>
 
-You can ask Antigravity in one sentence (*"Uninstall the token-usage plugin"*), disable/uninstall it from **Customizations / Plugins**, or manually delete `~/.gemini/config/plugins/token-usage`.
+Ask Antigravity (*"Uninstall the token-usage plugin"*), disable/uninstall it in **Customizations / Plugins**, or delete `~/.gemini/config/plugins/token-usage`.
 </details>
 
 ---
 
-## 📚 Architecture & Links
+## 🌟 Community & Support
 
-- [Project Architecture Map (`.ai_map.md`)](./.ai_map.md)
-- [GitHub Repository](https://github.com/RanFeng/token-usage)
-- [Discussions & Roadmap](https://github.com/RanFeng/token-usage/discussions)
+If **Token Usage** helps you tame context limits or track your ROI, please give it a **Star ⭐**!
+
+- 💬 **Ideas, Share Your ROI Cards & Roadmap Voting**: [GitHub Discussions](https://github.com/RanFeng/token-usage/discussions)
+- 🐛 **Bug Reports & Feature Requests**: [GitHub Issues](https://github.com/RanFeng/token-usage/issues)
+- 📖 **Docs**: [Architecture Map (`.ai_map.md`)](./.ai_map.md) · [Changelog](./CHANGELOG.md) · [Contributing](./CONTRIBUTING.md)
+- 📄 **License**: [MIT License](./LICENSE)
