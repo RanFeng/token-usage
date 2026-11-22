@@ -144,3 +144,13 @@ python3 ~/.gemini/config/plugins/token-usage/skills/token-usage/scripts/token_st
 - 💬 **質問・ROI カード共有・ロードマップ投票**：[GitHub Discussions](https://github.com/RanFeng/token-usage/discussions)
 - 🐛 **バグ報告・機能リクエスト**：[GitHub Issues](https://github.com/RanFeng/token-usage/issues)
 - 📖 **ドキュメント**：[`.ai_map.md`](./.ai_map.md) · [CHANGELOG](./CHANGELOG.md) · [CONTRIBUTING](./CONTRIBUTING.md) · [MIT License](./LICENSE)
+
+### 💬 WeChat 交流グループ & 連絡先
+
+下の QR コードから **token-usage 交流グループ**に参加できます（QR コードの有効期限が切れている場合は、作者の WeChat までご連絡ください）：
+
+- **作者 WeChat**：`x64Crack`（**申請時に必ず `token-usage` と明記してください**）
+
+<p align="center">
+  <img src="./assets/screenshots/wechat-group.png" alt="token-usage WeChat 交流グループ" width="220" />
+</p>

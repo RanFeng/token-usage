@@ -220,3 +220,13 @@ If **Token Usage** helps you tame context limits or track your ROI, please give 
 - 🐛 **Bug Reports & Feature Requests**: [GitHub Issues](https://github.com/RanFeng/token-usage/issues)
 - 📖 **Docs**: [Architecture Map (`.ai_map.md`)](./.ai_map.md) · [Changelog](./CHANGELOG.md) · [Contributing](./CONTRIBUTING.md)
 - 📄 **License**: [MIT License](./LICENSE)
+
+### 💬 WeChat Community & Contact
+
+Scan the QR code below to join the **token-usage WeChat Group** (if the QR code expires, add the author on WeChat for an invite):
+
+- **Author WeChat**: `x64Crack` (**please include the note `token-usage` when adding**)
+
+<p align="center">
+  <img src="./assets/screenshots/wechat-group.png" alt="token-usage WeChat Group" width="220" />
+</p>

@@ -220,3 +220,13 @@ python3 ~/.gemini/config/plugins/token-usage/skills/token-usage/scripts/token_st
 - 🐛 **Bug 反馈与功能建议**：[GitHub Issues](https://github.com/RanFeng/token-usage/issues)
 - 📖 **项目架构导航**：[`.ai_map.md`](./.ai_map.md) · [更新日志 (`CHANGELOG.md`)](./CHANGELOG.md) · [贡献指南 (`CONTRIBUTING.md`)](./CONTRIBUTING.md)
 - 📄 **开源协议**：[MIT License](./LICENSE)
+
+### 💬 微信交流群 & 联系作者
+
+欢迎扫码加入 **token-usage 交流群**，一起交流 Antigravity 使用技巧、晒 ROI 战报或反馈需求；如群二维码过期，可直接添加作者微信拉群：
+
+- **作者微信**：`x64Crack`（**添加时请务必备注：`token-usage`**）
+
+<p align="center">
+  <img src="./assets/screenshots/wechat-group.png" alt="token-usage 微信交流群" width="220" />
+</p>

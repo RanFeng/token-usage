@@ -144,3 +144,13 @@ Si **Token Usage** te ahorra tiempo o tokens, ¡regálanos una **Star ⭐**!
 - 💬 **Preguntas, Comparte tu ROI y Hoja de Ruta**: [GitHub Discussions](https://github.com/RanFeng/token-usage/discussions)
 - 🐛 **Reportar Bugs o Sugerir Funciones**: [GitHub Issues](https://github.com/RanFeng/token-usage/issues)
 - 📖 **Documentación**: [`.ai_map.md`](./.ai_map.md) · [CHANGELOG](./CHANGELOG.md) · [CONTRIBUTING](./CONTRIBUTING.md) · [MIT License](./LICENSE)
+
+### 💬 Grupo de WeChat y Contacto
+
+Escanea el código QR para unirte al **grupo de WeChat de token-usage** (si el código expira, agrega al autor en WeChat):
+
+- **WeChat del Autor**: `x64Crack` (**por favor incluye la nota `token-usage` al contactar**)
+
+<p align="center">
+  <img src="./assets/screenshots/wechat-group.png" alt="Grupo de WeChat token-usage" width="220" />
+</p>
