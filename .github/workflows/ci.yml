@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate JSON manifests
+        run: |
+          node -e '
+            const fs = require("fs");
+            for (const f of ["plugin.json", "sidecars/token_panel/sidecar.json", "sidecars/token_panel/package.json"]) {
+              JSON.parse(fs.readFileSync(f, "utf8"));
+              console.log("OK:", f);
+            }
+          '
+
+      - name: Check Sidecar JS/MJS syntax
+        run: |
+          for f in sidecars/token_panel/*.mjs sidecars/token_panel/*.js; do
+            node --check "$f"
+            echo "OK: $f"
+          done
+
+      - name: Check Skill Python script syntax
+        run: |
+          python3 -m py_compile skills/token-usage/scripts/token_stats.py
+          python3 skills/token-usage/scripts/token_stats.py --help >/dev/null
+          echo "OK: token_stats.py"
+
+      - name: Verify sync.sh packaging
+        run: |
+          bash ./sync.sh /tmp/token-usage-test
+          test -f /tmp/token-usage-test/plugin.json
+          test -f /tmp/token-usage-test/sidecars/token_panel/main.mjs
+          test -f /tmp/token-usage-test/skills/token-usage/SKILL.md
+          echo "OK: sync.sh verified"

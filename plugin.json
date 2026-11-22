@@ -1,0 +1,14 @@
+{
+  "name": "token-usage",
+  "displayName": "Token Usage",
+  "version": "1.1.0",
+  "logo": "assets/logo.svg",
+  "description": "Inspect exact input, cache-read, and output token consumption across all Antigravity conversations and per-turn interactions from local transcripts.",
+  "repository": "https://github.com/RanFeng/token-usage",
+  "waitlistUrl": "https://github.com/RanFeng/token-usage/discussions",
+  "suggestedPrompts": [
+    "统计最近 10 个会话的 Token 消耗汇总",
+    "查看当前会话每一轮对话的 Token 明细",
+    "按模型统计我所有会话的 Token 总消耗"
+  ]
+}

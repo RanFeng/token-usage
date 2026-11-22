@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: GitHub Discussions (Q&A, Ideas & Roadmap)
+    url: https://github.com/RanFeng/token-usage/discussions
+    about: Ask questions, share your token ROI cards, or vote on upcoming features.
+  - name: Security Vulnerability Report
+    url: https://github.com/RanFeng/token-usage/security/advisories/new
+    about: Privately report a security vulnerability instead of opening a public issue.

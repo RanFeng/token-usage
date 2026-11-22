@@ -1,0 +1,65 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag (e.g. v1.1.0)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine release tag
+        id: meta
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="${{ github.event.inputs.tag }}"
+          else
+            TAG="${GITHUB_REF_NAME}"
+          fi
+          VERSION="${TAG#v}"
+          PLUGIN_VERSION="$(node -p "require('./plugin.json').version")"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "Tag version: ${VERSION}, plugin.json version: ${PLUGIN_VERSION}"
+          if [ "${VERSION}" != "${PLUGIN_VERSION}" ]; then
+            echo "::error::Tag version (${VERSION}) does not match plugin.json version (${PLUGIN_VERSION})"
+            exit 1
+          fi
+
+      - name: Build clean plugin archives
+        run: |
+          TAG="${{ steps.meta.outputs.tag }}"
+          STAGE_DIR="dist/token-usage"
+          mkdir -p "${STAGE_DIR}"
+          bash ./sync.sh "${STAGE_DIR}"
+          cd dist
+          tar -czf "token-usage-${TAG}.tar.gz" token-usage
+          zip -rq "token-usage-${TAG}.zip" token-usage
+          sha256sum "token-usage-${TAG}.tar.gz" "token-usage-${TAG}.zip" > SHA256SUMS.txt
+          ls -lh "token-usage-${TAG}.tar.gz" "token-usage-${TAG}.zip" SHA256SUMS.txt
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: "Token Usage ${{ steps.meta.outputs.tag }}"
+          generate_release_notes: true
+          files: |
+            dist/token-usage-${{ steps.meta.outputs.tag }}.tar.gz
+            dist/token-usage-${{ steps.meta.outputs.tag }}.zip
+            dist/SHA256SUMS.txt

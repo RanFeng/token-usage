@@ -1,0 +1,6 @@
+{
+  "name": "token_panel",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Live token usage panel sidecar for Antigravity"
+}
