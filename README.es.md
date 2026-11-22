@@ -29,6 +29,10 @@
   <img src="./assets/screenshots/hero-banner.jpg" alt="Token Usage Hero Banner" width="100%" />
 </p>
 
+### 🎬 Demo en Video (48 segundos)
+
+https://github.com/user-attachments/assets/a50520b6-e04e-488b-94e4-507da9354e38
+
 ---
 
 ## 🎯 ¿Por qué usar Token Usage?

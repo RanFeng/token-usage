@@ -71,6 +71,9 @@ logs/
 *.tmp
 *.temp
 
-# Promo rendered build artifacts (regeneratable via promo/render/)
-promo/build/
-promo/*.mp4
+# Promo video production & intermediate media artifacts (local-only, never exposed)
+promo/
+*.mp4
+*.mov
+*.wav
+*.webm
